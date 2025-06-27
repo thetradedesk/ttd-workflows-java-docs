@@ -88,7 +88,7 @@ public class Application {
                 .id(412651L)
                 .call();
 
-        if (res.typeBasedJobStatusResponse().isPresent()) {
+        if (res.standardJobStatusResponse().isPresent()) {
             // handle response
         }
     }

@@ -6,7 +6,7 @@
 ### Available Operations
 
 * [submitGraphQlRequest](#submitgraphqlrequest) - Submit a valid GraphQL query or mutation
-* [submitGraphQlQueryJob](#submitgraphqlqueryjob) - Submit a valid bulk GraphQL query.
+* [submitGraphQlQueryJob](#submitgraphqlqueryjob) - Submit a valid bulk GraphQL query
 
 ## submitGraphQlRequest
 
@@ -70,7 +70,7 @@ public class Application {
 ## submitGraphQlQueryJob
 
 This generic operation can be used to execute any valid bulk GraphQL query.
-For information on bulk GraphQ query syntax, see [GraphQL API Bulk Operations](https://partner.thetradedesk.com/v3/portal/api/doc/GqlBulkOperations).
+For information on bulk GraphQL query syntax, see [GraphQL API Bulk Operations](https://partner.thetradedesk.com/v3/portal/api/doc/GqlBulkOperations).
 
 ### Example Usage
 

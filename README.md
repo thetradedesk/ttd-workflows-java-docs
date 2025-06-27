@@ -12,7 +12,7 @@ Developer-friendly & type-safe Java SDK specifically catered to facilitate commo
 <!-- Start Summary [summary] -->
 ## Summary
 
-This SDK provides operations for commonly used workflows on The Trade Desk's platform.
+This service provides operations for commonly used workflows on The Trade Desk's platform.
 In addition, this service provides generic operations for submitting:
 
 - GraphQL API requests
@@ -38,7 +38,6 @@ For further explanation on the entities encountered in this documentation (e.g.,
 * [Development](#development)
   * [Maturity](#maturity)
   * [Contributions](#contributions)
-
 <!-- End Table of Contents [toc] -->
 
 <!-- Start SDK Installation [installation] -->
@@ -52,7 +51,7 @@ The samples below show how a published SDK artifact is used:
 
 Gradle:
 ```groovy
-implementation 'com.thetradedesk:workflows:0.7.3'
+implementation 'com.thetradedesk:workflows:0.7.4'
 ```
 
 Maven:
@@ -60,7 +59,7 @@ Maven:
 <dependency>
     <groupId>com.thetradedesk</groupId>
     <artifactId>workflows</artifactId>
-    <version>0.7.3</version>
+    <version>0.7.4</version>
 </dependency>
 ```
 
@@ -77,7 +76,6 @@ On Windows:
 ```bash
 gradlew.bat publishToMavenLocal -Pskip.signing
 ```
-
 <!-- End SDK Installation [installation] -->
 
 <!-- Start SDK Example Usage [usage] -->
@@ -146,7 +144,6 @@ public class Main {
     }
 }
 ```
-
 <!-- End SDK Example Usage [usage] -->
 
 <!-- Start Authentication [security] -->
@@ -178,7 +175,7 @@ public class Application {
     public static void main(String[] args) throws ProblemDetailsException, Exception {
 
         TtdWorkflows sdk = TtdWorkflows.builder()
-                .ttdAuth(System.getenv("<YOUR_API_KEY>")
+            .ttdAuth("<YOUR_API_KEY_HERE>")
             .build();
 
         AdGroupCreateWorkflowInputWithValidation req = AdGroupCreateWorkflowInputWithValidation.builder()
@@ -330,7 +327,7 @@ public class Application {
 ### [graphQLRequest()](docs/sdks/graphqlrequest/README.md)
 
 * [submitGraphQlRequest](docs/sdks/graphqlrequest/README.md#submitgraphqlrequest) - Submit a valid GraphQL query or mutation
-* [submitGraphQlQueryJob](docs/sdks/graphqlrequest/README.md#submitgraphqlqueryjob) - Submit a valid bulk GraphQL query.
+* [submitGraphQlQueryJob](docs/sdks/graphqlrequest/README.md#submitgraphqlqueryjob) - Submit a valid bulk GraphQL query
 
 ### [jobStatus()](docs/sdks/jobstatus/README.md)
 

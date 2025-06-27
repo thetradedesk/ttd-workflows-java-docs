@@ -431,7 +431,7 @@ public class Application {
                 .request(req)
                 .call();
 
-        if (res.typeBasedJobSubmitResponse().isPresent()) {
+        if (res.standardJobSubmitResponse().isPresent()) {
             // handle response
         }
     }
@@ -585,7 +585,7 @@ public class Application {
                 .request(req)
                 .call();
 
-        if (res.typeBasedJobSubmitResponse().isPresent()) {
+        if (res.standardJobSubmitResponse().isPresent()) {
             // handle response
         }
     }
