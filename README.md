@@ -78,32 +78,6 @@ On Windows:
 gradlew.bat publishToMavenLocal -Pskip.signing
 ```
 
-### Logging
-A logging framework/facade has not yet been adopted but is under consideration.
-
-For request and response logging (especially json bodies), call `enableHTTPDebugLogging(boolean)` on the SDK builder like so:
-```java
-SDK.builder()
-    .enableHTTPDebugLogging(true)
-    .build();
-```
-Example output:
-```
-Sending request: http://localhost:35123/bearer#global GET
-Request headers: {Accept=[application/json], Authorization=[******], Client-Level-Header=[added by client], Idempotency-Key=[some-key], x-speakeasy-user-agent=[speakeasy-sdk/java 0.0.1 internal 0.1.0 org.openapis.openapi]}
-Received response: (GET http://localhost:35123/bearer#global) 200
-Response headers: {access-control-allow-credentials=[true], access-control-allow-origin=[*], connection=[keep-alive], content-length=[50], content-type=[application/json], date=[Wed, 09 Apr 2025 01:43:29 GMT], server=[gunicorn/19.9.0]}
-Response body:
-{
-  "authenticated": true, 
-  "token": "global"
-}
-```
-__WARNING__: This should only used for temporary debugging purposes. Leaving this option on in a production system could expose credentials/secrets in logs. <i>Authorization</i> headers are redacted by default and there is the ability to specify redacted header names via `SpeakeasyHTTPClient.setRedactedHeaders`.
-
-__NOTE__: This is a convenience method that calls `HTTPClient.enableDebugLogging()`. The `SpeakeasyHTTPClient` honors this setting. If you are using a custom HTTP client, it is up to the custom client to honor this setting.
-
-Another option is to set the System property `-Djdk.httpclient.HttpClient.log=all`. However, this second option does not log bodies.
 <!-- End SDK Installation [installation] -->
 
 <!-- Start SDK Example Usage [usage] -->
@@ -114,135 +88,31 @@ Another option is to set the System property `-Djdk.httpclient.HttpClient.log=al
 ```java
 package hello.world;
 
-import com.thetradedesk.workflows.TtdWorkflows;
-import com.thetradedesk.workflows.models.components.*;
-import com.thetradedesk.workflows.models.errors.ProblemDetailsException;
-import com.thetradedesk.workflows.models.operations.CreateAdGroupResponse;
 import java.lang.Exception;
-import java.util.List;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
+import com.thetradedesk.workflows.TtdWorkflows;
+import com.thetradedesk.workflows.models.components.ThirdPartyDataInput;
+import com.thetradedesk.workflows.models.errors.ProblemDetailsException;
+import com.thetradedesk.workflows.models.operations.GetThirdPartyDataJobResponse;
 
-public class Application {
+public class Main {
 
     public static void main(String[] args) throws ProblemDetailsException, Exception {
 
         TtdWorkflows sdk = TtdWorkflows.builder()
-                .ttdAuth("<YOUR_API_KEY_HERE>")
-            .build();
-
-        AdGroupCreateWorkflowInputWithValidation req = AdGroupCreateWorkflowInputWithValidation.builder()
-                .primaryInput(AdGroupCreateWorkflowPrimaryInput.builder()
-                    .name("<value>")
-                    .channel(AdGroupChannel.DISPLAY)
-                    .funnelLocation(AdGroupFunnelLocation.CONSIDERATION)
-                    .isEnabled(false)
-                    .description("twine from gosh poor safely editor astride vice lost and")
-                    .budget(AdGroupWorkflowBudgetInput.builder()
-                        .allocationType(AllocationType.MAXIMUM)
-                        .budgetInAdvertiserCurrency(3786.02)
-                        .budgetInImpressions(783190L)
-                        .dailyTargetInAdvertiserCurrency(9747.02)
-                        .dailyTargetInImpressions(985999L)
-                        .build())
-                    .baseBidCPMInAdvertiserCurrency(3785.04)
-                    .maxBidCPMInAdvertiserCurrency(7447.3)
-                    .audienceTargeting(AdGroupWorkflowAudienceTargetingInput.builder()
-                        .audienceId("<id>")
-                        .audienceAcceleratorExclusionsEnabled(true)
-                        .audienceBoosterEnabled(true)
-                        .audienceExcluderEnabled(true)
-                        .audiencePredictorEnabled(false)
-                        .crossDeviceVendorListForAudience(List.of(
-                            107263))
-                        .recencyExclusionWindowInMinutes(90062)
-                        .targetTrackableUsersEnabled(true)
-                        .useMcIdAsPrimary(true)
-                        .build())
-                    .roiGoal(AdGroupWorkflowROIGoalInput.builder()
-                        .maximizeReach(true)
-                        .maximizeLtvIncrementalReach(false)
-                        .cpcInAdvertiserCurrency(2280.31)
-                        .ctrInPercent(JsonNullable.of(null))
-                        .nielsenOTPInPercent(5175.21)
-                        .cpaInAdvertiserCurrency(2544.37)
-                        .returnOnAdSpendPercent(8201.47)
-                        .vcrInPercent(4846.08)
-                        .viewabilityInPercent(JsonNullable.of(null))
-                        .vcpmInAdvertiserCurrency(4649.53)
-                        .cpcvInAdvertiserCurrency(313.95)
-                        .miaozhenOTPInPercent(4704.1)
-                        .build())
-                    .creativeIds(JsonNullable.of(null))
-                    .associatedBidLists(List.of(
-                        AdGroupWorkflowAssociateBidListInput.builder()
-                            .bidListId("<id>")
-                            .isEnabled(false)
-                            .isDefaultForDimension(true)
-                            .build()))
-                    .programmaticGuaranteedPrivateContractId("<id>")
-                    .build())
-                .campaignId("<id>")
-                .advancedInput(AdGroupWorkflowAdvancedInput.builder()
-                    .koaOptimizationSettings(AdGroupWorkflowKoaOptimizationSettingsInput.builder()
-                        .areFutureKoaFeaturesEnabled(false)
-                        .predictiveClearingEnabled(false)
-                        .build())
-                    .comscoreSettings(AdGroupWorkflowComscoreSettingsInput.builder()
-                        .isEnabled(false)
-                        .populationId(JsonNullable.of(null))
-                        .demographicMemberIds(List.of(
-                            959580,
-                            236376))
-                        .mobileDemographicMemberIds(List.of(
-                            664689,
-                            827980,
-                            21321))
-                        .build())
-                    .contractTargeting(AdGroupWorkflowContractTargetingInput.builder()
-                        .allowOpenMarketBiddingWhenTargetingContracts(true)
-                        .build())
-                    .dimensionalBiddingAutoOptimizationSettings(List.of(
-                        List.of(),
-                        List.of()))
-                    .isUseClicksAsConversionsEnabled(false)
-                    .isUseSecondaryConversionsEnabled(false)
-                    .nielsenTrackingAttributes(AdGroupWorkflowNielsenTrackingAttributesInput.builder()
-                        .gender(TargetingGender.MALE)
-                        .startAge(TargetingStartAge.TWENTY_FIVE)
-                        .endAge(TargetingEndAge.SEVENTEEN)
-                        .countries(List.of(
-                            "<value 1>",
-                            "<value 2>",
-                            "<value 3>"))
-                        .enhancedReportingOption(EnhancedNielsenReportingOptions.SITE)
-                        .build())
-                    .newFrequencyConfigs(List.of(
-                        AdGroupWorkflowNewFrequencyConfigInput.builder()
-                            .counterName(Optional.empty())
-                            .frequencyCap(375286)
-                            .frequencyGoal(534735)
-                            .resetIntervalInMinutes(788122)
-                            .build()))
-                    .flights(List.of(
-                        AdGroupWorkflowFlightInput.builder()
-                            .campaignFlightId(874887L)
-                            .allocationType(AllocationType.MAXIMUM)
-                            .budgetInAdvertiserCurrency(4070.96)
-                            .budgetInImpressions(901477L)
-                            .dailyTargetInAdvertiserCurrency(5847.35)
-                            .dailyTargetInImpressions(257517L)
-                            .build()))
-                    .build())
-                .validateInputOnly(true)
+                .ttdAuth(System.getenv("WORKFLOWS_TTD_AUTH"))
                 .build();
 
-        CreateAdGroupResponse res = sdk.adGroup().createAdGroup()
+        ThirdPartyDataInput req = ThirdPartyDataInput.builder()
+                .partnerId("<id>")
+                .queryShape("nodes {id name}")
+                .build();
+
+        GetThirdPartyDataJobResponse res = sdk.dmp().getThirdPartyDataJob()
                 .request(req)
                 .call();
 
-        if (res.adGroupPayload().isPresent()) {
-            // handle response
+        if (res.typeBasedJobSubmitResponse().isPresent()) {
+            System.out.println(res.typeBasedJobSubmitResponse().get());
         }
     }
 }
@@ -278,7 +148,7 @@ public class Application {
     public static void main(String[] args) throws ProblemDetailsException, Exception {
 
         TtdWorkflows sdk = TtdWorkflows.builder()
-                .ttdAuth("<YOUR_API_KEY_HERE>")
+                .ttdAuth(System.getenv("<YOUR_API_KEY>")
             .build();
 
         AdGroupCreateWorkflowInputWithValidation req = AdGroupCreateWorkflowInputWithValidation.builder()
