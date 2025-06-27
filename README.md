@@ -1,6 +1,6 @@
-# openapi
+# ttd-workflows
 
-Developer-friendly & type-safe Java SDK specifically catered to leverage *openapi* API.
+Developer-friendly & type-safe Java SDK specifically catered to facilitate common workflows on The Trade Desk's platform.
 
 <div align="left">
     <a href="https://www.speakeasy.com/?utm_source=openapi&utm_campaign=java"><img src="https://custom-icon-badges.demolab.com/badge/-Built%20By%20Speakeasy-212015?style=for-the-badge&logoColor=FBE331&logo=speakeasy&labelColor=545454" /></a>
@@ -9,24 +9,14 @@ Developer-friendly & type-safe Java SDK specifically catered to leverage *openap
     </a>
 </div>
 
-
 <!-- Start Summary [summary] -->
 ## Summary
 
-Workflows Service: ## Operations for commonly used workflows.
-This service provides operations for commonly used workflows on The Trade Desk's platform.
+This SDK provides operations for commonly used workflows on The Trade Desk's platform.
 In addition, this service provides generic operations for submitting:
 
 - GraphQL API requests
 - REST API requests
-
-To interface with this service, we provide SDKs in multiple languages.
-For each available language, there is a code sample displayed to the right of each operation.
-
-To get started with the SDK in your language of choice, see the associated guide:
-
-- Java - coming soon
-- [Python](https://pypi.org/project/ttd-workflows/)
 
 For further explanation on the entities encountered in this documentation (e.g.,
 [campaigns](https://partner.thetradedesk.com/v3/portal/api/doc/Campaigns) and
@@ -37,7 +27,7 @@ For further explanation on the entities encountered in this documentation (e.g.,
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
 <!-- $toc-max-depth=2 -->
-* [openapi](#openapi)
+* [ttd-workflows](#ttd-workflows)
   * [SDK Installation](#sdk-installation)
   * [SDK Example Usage](#sdk-example-usage)
   * [Authentication](#authentication)
