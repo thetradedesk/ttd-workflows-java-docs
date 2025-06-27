@@ -83,7 +83,7 @@ gradlew.bat publishToMavenLocal -Pskip.signing
 <!-- Start SDK Example Usage [usage] -->
 ## SDK Example Usage
 
-### Example
+### Example: Submit job to retrieve third-party data
 
 ```java
 package hello.world;
@@ -103,7 +103,7 @@ public class Main {
                 .build();
 
         ThirdPartyDataInput req = ThirdPartyDataInput.builder()
-                .partnerId("<id>")
+                .partnerId("<partner_id>")
                 .queryShape("nodes {id name}")
                 .build();
 
@@ -111,12 +111,42 @@ public class Main {
                 .request(req)
                 .call();
 
-        if (res.typeBasedJobSubmitResponse().isPresent()) {
-            System.out.println(res.typeBasedJobSubmitResponse().get());
+        if (res.standardJobSubmitResponse().isPresent()) {
+            System.out.println(res.standardJobSubmitResponse().get());
         }
     }
 }
 ```
+
+### Example: Check status for third-party data retrieval job using job ID returned from submit job
+
+```java
+package hello.world;
+
+import java.lang.Exception;
+import com.thetradedesk.workflows.TtdWorkflows;
+import com.thetradedesk.workflows.models.errors.ProblemDetailsException;
+import com.thetradedesk.workflows.models.operations.GetJobStatusResponse;
+
+public class Main {
+
+    public static void main(String[] args) throws ProblemDetailsException, Exception {
+
+        TtdWorkflows sdk = TtdWorkflows.builder()
+                .ttdAuth(System.getenv("WORKFLOWS_TTD_AUTH"))
+                .build();
+
+        GetJobStatusResponse res = sdk.jobStatus().getJobStatus()
+                .id(<job_id>)
+                .call();
+
+        if (res.standardJobStatusResponse().isPresent()) {
+            System.out.println(res.standardJobStatusResponse().get());
+        }
+    }
+}
+```
+
 <!-- End SDK Example Usage [usage] -->
 
 <!-- Start Authentication [security] -->
