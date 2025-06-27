@@ -1,0 +1,10 @@
+# AdGroupBulkCreateWorkflowInputWithValidation
+
+
+## Fields
+
+| Field                                                                                      | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `input`                                                                                    | List\<[AdGroupCreateWorkflowInput](../../models/components/AdGroupCreateWorkflowInput.md)> | :heavy_check_mark:                                                                         | N/A                                                                                        |
+| `validateInputOnly`                                                                        | *JsonNullable\<Boolean>*                                                                   | :heavy_minus_sign:                                                                         | N/A                                                                                        |
+| `callbackInput`                                                                            | [Optional\<WorkflowCallbackInput>](../../models/components/WorkflowCallbackInput.md)       | :heavy_minus_sign:                                                                         | N/A                                                                                        |

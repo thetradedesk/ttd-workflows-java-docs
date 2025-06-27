@@ -1,0 +1,13 @@
+# ProblemDetailsException
+
+
+## Fields
+
+| Field                                                                     | Type                                                                      | Required                                                                  | Description                                                               |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `type`                                                                    | *JsonNullable\<String>*                                                   | :heavy_minus_sign:                                                        | N/A                                                                       |
+| `title`                                                                   | *JsonNullable\<String>*                                                   | :heavy_minus_sign:                                                        | N/A                                                                       |
+| `status`                                                                  | *JsonNullable\<Integer>*                                                  | :heavy_minus_sign:                                                        | N/A                                                                       |
+| `detail`                                                                  | *JsonNullable\<String>*                                                   | :heavy_minus_sign:                                                        | N/A                                                                       |
+| `instance`                                                                | *JsonNullable\<String>*                                                   | :heavy_minus_sign:                                                        | N/A                                                                       |
+| `additionalProperties`                                                    | Map\<String, [ProblemDetails](../../models/components/ProblemDetails.md)> | :heavy_minus_sign:                                                        | N/A                                                                       |

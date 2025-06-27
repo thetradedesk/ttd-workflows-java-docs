@@ -1,0 +1,10 @@
+# AdGroupCreateWorkflowInput
+
+
+## Fields
+
+| Field                                                                                              | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `primaryInput`                                                                                     | [AdGroupCreateWorkflowPrimaryInput](../../models/components/AdGroupCreateWorkflowPrimaryInput.md)  | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `campaignId`                                                                                       | *Optional\<String>*                                                                                | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `advancedInput`                                                                                    | [Optional\<AdGroupWorkflowAdvancedInput>](../../models/components/AdGroupWorkflowAdvancedInput.md) | :heavy_minus_sign:                                                                                 | N/A                                                                                                |

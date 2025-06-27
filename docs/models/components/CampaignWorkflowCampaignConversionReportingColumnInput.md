@@ -1,0 +1,13 @@
+# CampaignWorkflowCampaignConversionReportingColumnInput
+
+
+## Fields
+
+| Field                                                                      | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `trackingTagId`                                                            | *String*                                                                   | :heavy_check_mark:                                                         | N/A                                                                        |
+| `includeInCustomCPA`                                                       | *boolean*                                                                  | :heavy_check_mark:                                                         | N/A                                                                        |
+| `reportingColumnId`                                                        | *int*                                                                      | :heavy_check_mark:                                                         | N/A                                                                        |
+| `roasConfig`                                                               | [Optional\<CustomROASConfig>](../../models/components/CustomROASConfig.md) | :heavy_minus_sign:                                                         | N/A                                                                        |
+| `weight`                                                                   | *JsonNullable\<Double>*                                                    | :heavy_minus_sign:                                                         | N/A                                                                        |
+| `crossDeviceAttributionModelId`                                            | *JsonNullable\<String>*                                                    | :heavy_minus_sign:                                                         | N/A                                                                        |
